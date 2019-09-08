@@ -1,0 +1,59 @@
+For this programming assignment, you will be working with object-oriented programming(OOP). More specifically, you will be extending your knowledge of OOP by using polymorphism. 
+
+Given the classes in the templates below, implement the following methods:
+
+GenericContact Class:
+
+    Overloaded operator !=. This operator compares all the member variables of the class.
+    BusinessContact Class (Derived class from GenericContact):
+
+    Overloaded operator !=. This operator compares all the member variables of the class.
+    PersonalContact Class (Derived class from GenericContact):
+
+    Overloaded operator !=. This operator compares all the member variables of the class.
+
+Phonebook Class:
+
+    The helper function "findAvailablePosition". This function will return the first available position (with a value equal to "nullptr") in the phonebook. This method will return an integer value between 0 and size-1 if a position is available and -1 if the phonebook is full.
+    The helper function "findContactPosition". This function takes as parameter the phone number (string value) of the contact. The function will return an integer value between 0 and size-1 with the position of the first occurrence of a contact in the phonebook with the member variable "phoneNumber" equal to the value of the parameter received by the method. The function will return -1 if no contact matched the search criteria.
+    The addContact method. This method takes as parameters the type (string value) and the contact information (string value) of the contact to be added. The parameter "contactInformation" will contain all the fields of the contact separated by a single white space. Example of "contactInformation" for a business contact: "name1 city1 email1@email.com 777-777-7777". Example of "contactInformation" for a personal contact: "fname1 lname1 01/01/01 emai1@email1.com 777-777-7777". This method returns true if the contact is added to the phonebook and false otherwise.
+    The deleteContact method. This method takes as parameter the phone number (string value) of the contact to be deleted. This method will delete the first occurrence of a contact in the phonebook with the member variable "phoneNumber" equal to the value of the parameter received by the method. This method will return true if a contact was deleted and false otherwise.
+    The print method. This method will print the information of each contact in the phonebook. 
+    The readFile method. This method takes as parameter the filename (string value) where the information of the contacts is stored. The method will return true if the file can be opened and false otherwise. An example of the input file is provided below.
+    Overloaded operator ==. This operator compares all the member variables of the class.
+    The destructor.
+
+NOTES:
+    You must implement polymorphism (virtual functions) when needed.
+    You can use the implementations of the overloaded constructor, the copy constructor, and the copy assignment operator of the Phonebook class (provided in the template) to write your solution.
+    You can safely assume that the input from the user will always be in the proper format.
+    INPUT FILE FORMAT:
+    Each line of the input file will have the different fields of the contact separated by a single white space. Example:
+
+    B Business1 City1 bemail1@email.com 777-777-7777
+    P Fname1 Lname1 01/01/01 pemail1@email.com 777-777-7777
+    P Fname2 Lname2 01/01/01 pemail2@email.com 777-777-7777
+    P Fname3 Lname3 01/01/01 pemail3@email.com 777-777-7778
+    B Business2 City2 bemail2@email.com 777-777-7779
+
+EXAMPLE main.cpp
+
+    #include "Phonebook.h"
+    int main()
+    {
+    Phonebook myPhonebook(10);
+    myPhonebook.readFromFile("input.txt");
+    myPhonebook.print();
+    return 0;
+    }
+    
+EXPECTED OUTPUT:
+
+    Contacts: 
+
+    Name: Business1, City: City1 Email: bemail1@email.com, Phone number: 777-777-7777
+    Firstname: Fname1, Lastname: Lname1, DOB: 01/01/01 Email: pemail1@email.com, Phone number: 777-777-7777
+    Firstname: Fname2, Lastname: Lname2, DOB: 01/01/01 Email: pemail2@email.com, Phone number: 777-777-7777
+    Firstname: Fname3, Lastname: Lname3, DOB: 01/01/01 Email: pemail3@email.com, Phone number: 777-777-7778
+    Name: Business2, City: City2 Email: bemail2@email.com, Phone number: 777-777-7779
+
